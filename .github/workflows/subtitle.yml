@@ -1,0 +1,62 @@
+name: Subtitle batch job
+on: push
+
+env:
+  BUCKET_IN: ubucon_bucket_in
+  BUCKET_OUT: ubucon_bucket_out
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+    - uses: actions/checkout@v2
+    - id: set-matrix
+      run: |
+        JSON=$(cat ./videos.json)
+        JSON="${JSON//'%'/%25}"
+        JSON="${JSON//$'\n'/%0A}"
+        JSON="${JSON//$'\r'/%0D}"
+        echo "::set-output name=matrix::${JSON}"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest wheel
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - run: echo ${{ matrix.input }}
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        export_default_credentials: true
+        components: gsutil
+    - name: Generate subtitle from audio file
+      run: |
+        export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS
+        python speech2srt.py --storage_uri gs://${{env.BUCKET_IN}}/${{ matrix.input }} \
+          --language_code ${{ matrix.from }} --out_file ${{ matrix.from }} --out_storage ${{env.BUCKET_OUT}}
+    - name: Translate subtitle text
+      run: |
+        python translate_txt.py --project_id ${{ secrets.GCP_PROJECT_ID }} --source_lang ${{ matrix.from }} --target_lang ${{ matrix.to }} \
+          --input_uri gs://${{env.BUCKET_OUT}}/${{ matrix.input }}/${{ matrix.from }}.txt --output_uri gs://${{env.BUCKET_OUT}}/${{ matrix.input }}/out/
+    - name: Convert translated text into subtitles
+      run: |
+        gsutil cp -r gs://${{env.BUCKET_OUT}}/${{ matrix.input }}/out/ .
+        gsutil cp gs://${{env.BUCKET_OUT}}/${{ matrix.input }}/${{ matrix.from }}.srt .
+        mv out/* .
+        python txt2srt.py --srt ${{ matrix.from }}.srt --index index.csv --out_bucket ${{env.BUCKET_OUT}} --out_path ${{ matrix.input }}/out/
+      
