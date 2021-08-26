@@ -15,7 +15,7 @@
 # limitations under the License.
 import srt
 from google.cloud import storage
-
+import socket
 
 def load_srt(filename):
     # load original .srt file
@@ -71,6 +71,7 @@ def upload_to_bucket(content, bucket_obj, dest_filename):
     blob.upload_from_string(content)
 
 def main():
+    socket.setdefaulttimeout(300)
     import argparse
 
     parser = argparse.ArgumentParser()

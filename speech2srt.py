@@ -17,6 +17,8 @@ from google.cloud.storage import blob
 import srt
 import time
 from google.cloud import speech, storage
+import socket
+
 
 
 def long_running_recognize(args):
@@ -126,6 +128,7 @@ def upload_to_bucket(content, bucket_obj, dest_filename):
 
 
 def main():
+    socket.setdefaulttimeout(300)
     import argparse
 
     parser = argparse.ArgumentParser()
