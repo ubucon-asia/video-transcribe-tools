@@ -1,7 +1,7 @@
 {
     "include": [
         {
-            "input": " oem_metapackages_concourse_ci.mp4.flac",
+            "input": "oem_metapackages_concourse_ci.mp4.flac",
             "from": "zh-TW",
             "to": "en"
         }
