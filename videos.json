@@ -1,13 +1,8 @@
 {
     "include": [
         {
-            "input": "ubuntu2004.flac",
-            "from": "ko",
-            "to": "en"
-        },
-        {
-            "input": "l10n.flac",
-            "from": "ko",
+            "input": " oem_metapackages_concourse_ci.mp4.flac",
+            "from": "zh-TW",
             "to": "en"
         }
     ]
