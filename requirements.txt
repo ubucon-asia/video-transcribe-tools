@@ -1,4 +1,4 @@
-google-cloud-speech>=1.2.0
-google-cloud-translate>=2.0.0
+google-cloud-speech>=2.7.0
+google-cloud-translate>=3.3.2
 srt>=3.0.0
-google-cloud-storage
+google-cloud-storage>=1.42.0
