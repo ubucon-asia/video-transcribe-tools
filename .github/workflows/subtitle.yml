@@ -1,5 +1,6 @@
 name: Subtitle batch job
-on: push
+on:
+  workflow_dispatch:
 
 env:
   BUCKET_IN: ubucon-asia-2021-video-out
