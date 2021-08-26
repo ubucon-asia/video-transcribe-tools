@@ -2,8 +2,8 @@ name: Subtitle batch job
 on: push
 
 env:
-  BUCKET_IN: ubucon_bucket_in
-  BUCKET_OUT: ubucon_bucket_out
+  BUCKET_IN: ubucon-asia-2021-video-out
+  BUCKET_OUT: ubucon-asia-subtitle-out
 
 jobs:
   job1:
