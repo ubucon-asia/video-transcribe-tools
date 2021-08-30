@@ -4,7 +4,7 @@ on:
 
 env:
   BUCKET_IN: ubucon-asia-2021-video-out
-  BUCKET_OUT: ubucon-asia-subtitle-out
+  BUCKET_OUT: ubucon-asia-2021-subtitle-out
 
 jobs:
   job1:
