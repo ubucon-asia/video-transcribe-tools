@@ -1,8 +1,78 @@
 {
     "include": [
         {
-            "input": "oem_metapackages_concourse_ci.mp4.flac",
+            "input": "cloudmate_co_ltd_ko.mp4.flac",
+            "from": "ko",
+            "to": "en"
+        },
+        {
+            "input": "contributhon_l10n_ko.mp4.flac",
+            "from": "ko",
+            "to": "en"
+        },
+        {
+            "input": "desktop_ubutu_on_laptopsraspberrypis_ja.mp4.flac",
+            "from": "ja",
+            "to": "en"
+        },
+        {
+            "input": "if_you_need_lamp_stack_journey_to_ubuntu_with_wsl2_ko.mp4.flac",
+            "from": "ko",
+            "to": "en"
+        },
+        {
+            "input": "mengetik_id.mp4.flac",
+            "from": "id",
+            "to": "en"
+        },
+        {
+            "input": "oem_metapackages_concourse_ci_zh_tw.mp4.flac",
             "from": "zh-TW",
+            "to": "en"
+        },
+        {
+            "input": "open_source_compliance_practice_of_the_openEuler_community_zh_cn.mp4.flac",
+            "from": "zh-CN",
+            "to": "en"
+        },
+        {
+            "input": "promote_ubuntu_localization_of_the_ethnic_groups_in_china_zh_cn.mp4.flac",
+            "from": "zh-CN",
+            "to": "en"
+        },
+        {
+            "input": "sinau_bash_id.mp4.flac",
+            "from": "id",
+            "to": "en"
+        },
+        {
+            "input": "multipass_id.mp4.flac",
+            "from": "id",
+            "to": "en"
+        },
+        {
+            "input": "ubuntu_os__service_patch_management_using_ansible_id.mp4.flac",
+            "from": "id",
+            "to": "en"
+        },
+        {
+            "input": "ukui3_tablet_mode_zh_cn.mp4.flac",
+            "from": "zh-CN",
+            "to": "en"
+        },
+        {
+            "input": "webhosting_cyberpanel_id.mp4.flac",
+            "from": "id",
+            "to": "en"
+        },
+        {
+            "input": "who_killed_my_processes_ko.mp4.flac",
+            "from": "ko",
+            "to": "en"
+        },
+        {
+            "input": "wsl_api_integration_test_ko.mp4.flac",
+            "from": "ko",
             "to": "en"
         }
     ]
