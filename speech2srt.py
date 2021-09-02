@@ -124,7 +124,7 @@ def write_txt(args, subs):
 
 def upload_to_bucket(content, bucket_obj, dest_filename):
     blob = bucket_obj.blob(dest_filename)
-    blob.upload_from_string(content)
+    blob.upload_from_string(content, timeout=(120, 120))
 
 
 def main():
