@@ -59,12 +59,11 @@ def batch_translate_text(
             "target_language_codes":target_language_codes,
             "input_configs":input_configs,
             "output_config":output_config
-            },
-        timeout=180.0
+            }
     )
 
     print(u"Waiting for operation to complete...")
-    response = operation.result(90)
+    response = operation.result(3600)
 
     print(u"Total Characters: {}".format(response.total_characters))
     print(u"Translated Characters: {}".format(response.translated_characters))
