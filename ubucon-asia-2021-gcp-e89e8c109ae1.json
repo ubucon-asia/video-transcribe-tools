@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ubucon-asia-2021-gcp",
+  "private_key_id": "e89e8c109ae118bc26399a2fe2442d11328f3f93",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQCXec7wk74cFvc+\nLfLbiOWxEv/9QmXM+Z7LeV4QBt+Gysf+N5pgkAZuKzJ9ultIVPye6qTfL++zi2dt\n0Zlaze6037Bn6mre4/3vaiDWsbIOhp4wnCGcHG4fU3340FkdDAhw/SpgMtCwunUt\nYfvPylIwYpLuyOPzoblHpXw2RTAPQEgaqyLzYiG0Ds9vt1VIDVrKVYud24nYKKmq\ngjLLRaYvA3fR4BAfxs993wUZZDbHSK5uXSk+2I52vPzbSeK6d+wZQoR699jW1I/9\nyc71K0XHntAmnzdqoNCCqaShf7C0lMiPwCDIzIueeTe6U6GjiMc9n/9UqfUUpYBi\n593ASATBAgMBAAECgf9PI5S6nHX2twj1s4vuptdabFLSPp5xOPl91SsPtIeUJN3Y\nM7S0Posdg/QdO//1CnHxlSYOdT0G0Q54kclNZ8oPNc80e4TabsN9EjWV9cDRVgPP\n4cKtjSz7sONf23qzclX2sk4xdFsT+la+HzMwnMPUA6xAlTSDVTs3832x3PP/Awhf\npwvVh3InTcnUgejk4imT6711V3HrIbXekqDNQl8BZpSXgkbvznrMuHkteTmCYV7D\n1AYW8tOIaw0bofXLfyN/3isxyo2pc3TNsLNkAhdt+y4V/hGMU29sqomDbG2FJdf0\nfOG2Oqc2s1lBKt4oUv1zLANnYmfA92x5czKo61UCgYEA02qS1P2yw102cV8qVHl2\nQKbKy1LCf9j5h5xfVFpKoTB1m7OHtfU3Vg6c1gmgkSQICF//tQtxC4dxgc7q7K/W\nZ5An2/7V+fMNtFEQmDqRvH5LfW5s5IUrhXQ8DGJPGW7Zt+JerA+CWaSxQvlfcDW9\n3SJCvRuW2VkOtbF5mQJ7B6UCgYEAt2tQcWUIUBzyUV37FCK5ckIBxNTAON76QDLq\n43dqqJ1gPMpvkkFeWSvicFU/xEt8NsPRLYoRECER5i7zKtDQic55jwE7tsj43/kA\n+z1PZvQDM/eB8D8j+qq0fKDhRY5Rk5c2s/uXA6uWEoHCrELWmDyMs3vIWTIGbA/w\nF40/Xe0CgYAZLMunST6MPQFKpsZnoL8QG8xyQbyfdLriByDi7o2MfDTFAa/bXwPj\n34GVizfvkJbUSHoumNoxQUOm7XjUDmw9kNDuRX49cU/kdPLA7diE1ZUvroKRA7qW\n/axY3SwGH0kVuIMFgiNHgXEKRJ+0wPGG75l641onL4+s2yFbswvrcQKBgEnXWjtM\ngVw/Sw6W103z7NSi3jNvszMyEW1nEkkg+j+HnAbdOK2Yw3MCx9aRe2p7OTaS/tNm\nkhf8OEiC/kJuboYMKcP4qyGbJxaEGHEM7bp04hU5v4YI5WM09hR2cDqgYRcZ+Vvc\nHZ/MpE4vD0BqaBpBxiM74hyGly9J+05//tLBAoGACndtBQxVFnrmbNNDROESuovd\nmtQApA12VrlKgpMOJNZTCzk2DMSoOycXPjFHec56O3bLt2/kVtLlbQklCNS713X+\n4Zmb/MpXXT7HEp7rthJA9EARNKPuLq88ruyVuWqqAiIMBOOmdZFoTdyUhANAJgr2\n7MW3fFttpWb0ochCVDs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "subtitle-agent@ubucon-asia-2021-gcp.iam.gserviceaccount.com",
+  "client_id": "115071239710209673770",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/subtitle-agent%40ubucon-asia-2021-gcp.iam.gserviceaccount.com"
+}

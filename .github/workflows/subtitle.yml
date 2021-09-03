@@ -51,7 +51,8 @@ jobs:
         mkdir ${{ matrix.input }}
         python speech2srt.py --storage_uri gs://${{env.BUCKET_IN}}/${{ matrix.input }} \
           --language_code ${{ matrix.from }} --out_file ${{ matrix.from }} --out_storage ${{env.BUCKET_OUT}}
-        gsutil cp -r ${{ matrix.input }} gs://${{env.BUCKET_OUT}}
+        CPFILE=$(gsutil -q cp -r ${{ matrix.input }} gs://${{env.BUCKET_OUT}}; echo $?)
+        if [ $CPFILE -eq 1 ]; then echo "Skipped uploading files"; fi
     - name: Translate subtitle text
       run: |
         python translate_txt.py --project_id ${{ secrets.GCP_PROJECT_ID }} --source_lang ${{ matrix.from }} --target_lang ${{ matrix.to }} \

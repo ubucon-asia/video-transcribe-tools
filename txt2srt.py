@@ -52,8 +52,9 @@ def update_srt(lang, langfile, subs):
         lines = f.readlines()
     i = 0
     for line in lines:
-        subs[i].content = line
-        i += 1
+        if i < len(subs):
+            subs[i].content = line
+            i += 1
     return subs
 
 
