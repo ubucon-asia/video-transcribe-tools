@@ -13,7 +13,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from google.cloud.storage import blob
 import srt
 import time
 from google.cloud import speech, storage
@@ -122,10 +121,10 @@ def write_txt(args, subs):
     # f.close()
     return content
 
-def upload_to_bucket(content, bucket_obj, dest_filename):
-    blob = bucket_obj.blob(dest_filename)
-    blob.upload_from_string(content, timeout=(120, 120))
-
+def write_to_file(content, dest_filepath):
+    f = open(dest_filepath, 'w')
+    f.write(content)
+    f.close()
 
 def main():
     socket.setdefaulttimeout(300)
@@ -176,8 +175,9 @@ def main():
         srt_str = write_srt(args, subs)
         txt_str = write_txt(args, subs)
         
-        upload_to_bucket(srt_str, bucket, out_srt)
-        upload_to_bucket(txt_str, bucket, out_txt)
+        write_to_file(srt_str, out_srt)
+        write_to_file(txt_str, out_txt)
+
     else:
         print("Skipped batch speech to text job as output path is not empty")
 

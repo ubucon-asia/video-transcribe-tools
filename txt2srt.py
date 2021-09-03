@@ -26,7 +26,7 @@ def load_srt(filename):
     return list(srt.parse(text))
 
 
-def process_translations(subs, indexfile, out_bucket, out_path):
+def process_translations(subs, indexfile, out_bucket):
     # read index.csv and foreach translated file,
     storage_client = storage.Client()
     bucket = storage_client.bucket(out_bucket)
@@ -41,7 +41,7 @@ def process_translations(subs, indexfile, out_bucket, out_path):
         langfile = index_list[2].split("/")[-1]
         lang_subs = update_srt(lang, langfile, subs)
         content = write_srt(lang, lang_subs)
-        upload_to_bucket(content, bucket, out_path + lang + ".srt")
+        write_to_file(content, f"out/{lang}.srt")
     return
 
 
@@ -70,6 +70,11 @@ def upload_to_bucket(content, bucket_obj, dest_filename):
     blob = bucket_obj.blob(dest_filename)
     blob.upload_from_string(content, timeout=(120, 120))
 
+def write_to_file(content, dest_filepath):
+    f = open(dest_filepath, 'w')
+    f.write(content)
+    f.close()
+
 def main():
     socket.setdefaulttimeout(300)
     import argparse
@@ -89,14 +94,10 @@ def main():
         "--out_bucket",
         type=str,
     )
-    parser.add_argument(
-        "--out_path",
-        type=str,
-    )
     args = parser.parse_args()
 
     subs = load_srt(args.srt)
-    process_translations(subs, args.index, args.out_bucket, args.out_path)
+    process_translations(subs, args.index, args.out_bucket)
 
 
 if __name__ == "__main__":

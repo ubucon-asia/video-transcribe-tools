@@ -50,6 +50,7 @@ jobs:
         export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS
         python speech2srt.py --storage_uri gs://${{env.BUCKET_IN}}/${{ matrix.input }} \
           --language_code ${{ matrix.from }} --out_file ${{ matrix.from }} --out_storage ${{env.BUCKET_OUT}}
+        gsutil cp -r ${{ matrix.input }} ${{env.BUCKET_OUT}}
     - name: Translate subtitle text
       run: |
         python translate_txt.py --project_id ${{ secrets.GCP_PROJECT_ID }} --source_lang ${{ matrix.from }} --target_lang ${{ matrix.to }} \
@@ -60,4 +61,4 @@ jobs:
         gsutil cp gs://${{env.BUCKET_OUT}}/${{ matrix.input }}/${{ matrix.from }}.srt .
         mv out/* .
         python txt2srt.py --srt ${{ matrix.from }}.srt --index index.csv --out_bucket ${{env.BUCKET_OUT}} --out_path ${{ matrix.input }}/out/
-      
+        gsutil cp out/** gs://${{env.BUCKET_OUT}}${{ matrix.input }}/out/
